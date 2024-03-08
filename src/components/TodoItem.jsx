@@ -7,8 +7,9 @@ const TodoItem = ({
   title,
   description,
   isCompleted,
-  onComplete,
-  onDelete,
+  handleCompleteTodo,
+  handleDeleteTodo,
+  id,
 }) => {
   const { theme } = useThemeProvider();
 
@@ -29,11 +30,11 @@ const TodoItem = ({
       </div>
       <div className="flex justify-between items-center mr-4">
         {!isCompleted && (
-          <Button onClick={onComplete} color="green">
+          <Button id={id} onClick={() => handleCompleteTodo(id)} color="green">
             Complete
           </Button>
         )}
-        <Button onClick={onDelete} color="red">
+        <Button id={id} onClick={() => handleDeleteTodo(id)} color="red">
           Delete
         </Button>
       </div>
