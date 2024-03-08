@@ -5,7 +5,8 @@ import { ThemeProvider } from "./contexts/themeContext";
 function App() {
   return (
     <ThemeProvider>
-      <TodoItem />
+      <TodoItem title="title" description="des" isCompleted={false} />
+      <TodoItem title="title" description="des" isCompleted={true} />
       <Main />
     </ThemeProvider>
   );
