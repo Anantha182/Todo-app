@@ -15,6 +15,16 @@ const AddTodo = ({ handleAddTodo }) => {
     color: `${theme === THEME_MODES.LIGHT ? "#262523" : "#F5F5DC"}`,
   };
 
+  const handleSubmit = () => {
+    if (!todoTitle || !todoDescription) {
+      alert("Please fill both title and description to proceed");
+      return;
+    }
+    setTodoDescription("");
+    setTodoTitle("");
+    return handleAddTodo(uuidv4(), todoTitle, todoDescription);
+  };
+
   return (
     <div className="flex justify-between p-2 m-2 items-center" style={style}>
       <div className="flex ml-4 w-3/4">
@@ -44,14 +54,7 @@ const AddTodo = ({ handleAddTodo }) => {
         </span>
       </div>
       <div className="mr-4">
-        <Button
-          color="orange"
-          onClick={() => {
-            setTodoDescription("");
-            setTodoTitle("");
-            return handleAddTodo(uuidv4(), todoTitle, todoDescription);
-          }}
-        >
+        <Button color="orange" onClick={handleSubmit}>
           Add todo
         </Button>
       </div>

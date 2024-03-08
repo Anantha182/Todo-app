@@ -11,9 +11,9 @@ const useHandleTodos = () => {
     const handleWindowReload = () => {
       localStorage.setItem("todos", JSON.stringify(todos));
     };
-    window.addEventListener("beforeunload", handleWindowReload);
+    // window.addEventListener("beforeunload", handleWindowReload);
     return () => {
-      window.removeEventListener("beforeunload", handleWindowReload);
+      // window.removeEventListener("beforeunload", handleWindowReload);
     };
   }, [todos]);
 
@@ -27,10 +27,12 @@ const useHandleTodos = () => {
     });
     setTodos(newTodos);
   };
+
   const handleDeleteTodo = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
+
   const handleAddTodo = (id, title, description) => {
     if (!id || !title || !description) {
       return;
@@ -46,6 +48,7 @@ const useHandleTodos = () => {
     ];
     setTodos(newTodos);
   };
+
   return {
     todos,
     handleAddTodo,

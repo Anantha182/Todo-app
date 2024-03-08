@@ -3,7 +3,7 @@ import { ThemeContext } from "../contexts/themeContext";
 
 const useThemeProvider = () => {
   const themeContext = useContext(ThemeContext);
-  return { ...themeContext };
+  return themeContext;
 };
 
 export { useThemeProvider };
