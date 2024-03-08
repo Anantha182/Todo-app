@@ -1,10 +1,8 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = ({todos, handleCompleteTodo, handleDeleteTodo}) => {
-  
-
+const TodoList = ({ todos, handleCompleteTodo, handleDeleteTodo }) => {
   return (
-    <div className="w-11/12 m-auto">
+    <div className="m-2">
       {todos &&
         todos.map((todo) => {
           return (

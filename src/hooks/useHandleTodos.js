@@ -15,7 +15,7 @@ const useHandleTodos = () => {
     return () => {
       window.removeEventListener("beforeunload", handleWindowReload);
     };
-  }, []);
+  }, [todos]);
 
   const handleCompleteTodo = (id) => {
     const newTodos = todos.map((todo) => {
@@ -44,7 +44,6 @@ const useHandleTodos = () => {
         isCompleted: false,
       },
     ];
-    console.log(newTodos);
     setTodos(newTodos);
   };
   return {

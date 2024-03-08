@@ -19,7 +19,7 @@ const TodoItem = ({
   };
 
   return (
-    <div className={`flex justify-between w-full`} style={style}>
+    <div className={`flex justify-between w-full my-1`} style={style}>
       <div
         className={`flex flex-col justify-center ml-4 ${
           isCompleted ? "line-through" : ""
@@ -29,12 +29,19 @@ const TodoItem = ({
         <div className="text-xl text-wrap">{description}</div>
       </div>
       <div className="flex justify-between items-center mr-4">
-        {!isCompleted && (
-          <Button id={id} onClick={() => handleCompleteTodo(id)} color="green">
-            Complete
-          </Button>
-        )}
-        <Button id={id} onClick={() => handleDeleteTodo(id)} color="red">
+        <Button
+          isDisabled={isCompleted}
+          onClick={() => handleCompleteTodo(id)}
+          color="green"
+        >
+          Complete
+        </Button>
+
+        <Button
+          isDisabled={isCompleted}
+          onClick={() => handleDeleteTodo(id)}
+          color="red"
+        >
           Delete
         </Button>
       </div>
