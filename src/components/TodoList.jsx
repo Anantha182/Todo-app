@@ -1,6 +1,7 @@
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, handleCompleteTodo, handleDeleteTodo }) => {
+ 
   return (
     <div className="m-2">
       {todos &&

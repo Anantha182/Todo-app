@@ -22,7 +22,7 @@ const Navbar = () => {
             width="32"
             height="32"
             onClick={toggleTheme}
-            className="hover:scale-125 transition-transform duration-300"
+            className="hover:scale-125 transition-transform duration-300 cursor-pointer"
           >
             <g fill="none" fill-rule="evenodd">
               <g fill="currentColor">
@@ -44,7 +44,7 @@ const Navbar = () => {
             height="28"
             viewBox="0 0 32 32"
             onClick={toggleTheme}
-            className="hover:scale-125 transition-transform duration-300"
+            className="hover:scale-125 transition-transform duration-300 cursor-pointer"
           >
             <g fill="none" fill-rule="evenodd">
               <path
