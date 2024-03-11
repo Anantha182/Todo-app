@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { todos as initialTodos } from "../utils/sampleTodos";
 
 const useHandleTodos = () => {
@@ -6,16 +6,6 @@ const useHandleTodos = () => {
     localStorage.setItem("todos", JSON.stringify(initialTodos));
   }
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
-
-  useEffect(() => {
-    const handleWindowReload = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
-    };
-    // window.addEventListener("beforeunload", handleWindowReload);
-    return () => {
-      // window.removeEventListener("beforeunload", handleWindowReload);
-    };
-  }, [todos]);
 
   const handleCompleteTodo = (id) => {
     const newTodos = todos.map((todo) => {
@@ -26,11 +16,13 @@ const useHandleTodos = () => {
       }
     });
     setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   const handleDeleteTodo = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   const handleAddTodo = (id, title, description) => {
@@ -47,6 +39,7 @@ const useHandleTodos = () => {
       },
     ];
     setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   return {
