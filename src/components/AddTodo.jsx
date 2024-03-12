@@ -22,7 +22,7 @@ const AddTodo = ({ handleAddTodo }) => {
     }
     setTodoDescription("");
     setTodoTitle("");
-    return handleAddTodo(uuidv4(), todoTitle, todoDescription);
+    handleAddTodo(uuidv4(), todoTitle, todoDescription);
   };
 
   return (

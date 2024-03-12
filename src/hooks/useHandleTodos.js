@@ -33,6 +33,7 @@ const useHandleTodos = () => {
 
   const handleAddTodo = useCallback(
     (id, title, description) => {
+      console.log("handle add todo called");
       if (!id || !title || !description) {
         return;
       }
