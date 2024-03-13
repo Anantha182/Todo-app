@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../baseComponents/Button";
 import { useThemeProvider } from "../hooks/useThemeProvider";
 import { THEME_MODES } from "../utils/constants";
 

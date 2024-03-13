@@ -1,5 +1,5 @@
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
+import Main from "./modules/Main";
+import Navbar from "./modules/Navbar";
 import { ThemeProvider } from "./contexts/themeContext";
 
 function App() {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "../baseComponents/Button";
 import { v4 as uuidv4 } from "uuid";
 import { useThemeProvider } from "../hooks/useThemeProvider";
 import { THEME_MODES } from "../utils/constants";
