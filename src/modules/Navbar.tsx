@@ -1,10 +1,9 @@
 import React from "react";
 import { useThemeProvider } from "../hooks/useThemeProvider";
-import { THEME_MODES } from "../utils/constants";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useThemeProvider();
-  const isLightMode = theme === THEME_MODES.LIGHT;
+  const isLightMode = theme === 'light';
   const style = {
     backgroundColor: `${isLightMode ? "#F5F5DC" : "#262523"}`,
     color: `${isLightMode ? "#262523" : "#F5F5DC"}`,

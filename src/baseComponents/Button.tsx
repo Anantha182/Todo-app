@@ -1,6 +1,18 @@
 import React from "react";
 
-const Button = ({ isDisabled, onClick, color, children }) => {
+type BottonProps = {
+  isDisabled?: boolean;
+  onClick: React.MouseEventHandler;
+  color: string;
+  children: React.ReactNode;
+};
+
+const Button: React.FC<BottonProps> = ({
+  isDisabled,
+  onClick,
+  color,
+  children,
+}) => {
   const style = {
     textDecoration: isDisabled && color === "green" ? "line-through" : "none",
   };

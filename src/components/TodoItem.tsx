@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../baseComponents/Button";
 import { useThemeProvider } from "../hooks/useThemeProvider";
-import { THEME_MODES } from "../utils/constants";
 
 const TodoItem = ({
   title,
@@ -14,8 +13,8 @@ const TodoItem = ({
   const { theme } = useThemeProvider();
 
   const style = {
-    backgroundColor: `${theme === THEME_MODES.LIGHT ? "#F5F5DC" : "#262523"}`,
-    color: `${theme === THEME_MODES.LIGHT ? "#262523" : "#F5F5DC"}`,
+    backgroundColor: `${theme === 'light' ? "#F5F5DC" : "#262523"}`,
+    color: `${theme === 'light' ? "#262523" : "#F5F5DC"}`,
   };
 
   return (

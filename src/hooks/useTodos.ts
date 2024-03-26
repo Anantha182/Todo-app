@@ -1,15 +1,23 @@
 import { useState, useCallback } from "react";
 import { todos as initialTodos } from "../utils/sampleTodos";
+import { Todo } from "../types/types";
+import {
+  handleAddTodo,
+  handleCompleteTodo,
+  handleDeleteTodo,
+} from "../types/types";
 
-const useHandleTodos = () => {
+const useTodos = () => {
   if (!localStorage.getItem("todos")) {
     localStorage.setItem("todos", JSON.stringify(initialTodos));
   }
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
+  const [todos, setTodos] = useState<Todo[]>(
+    JSON.parse(localStorage.getItem("todos"))
+  );
 
-  const handleCompleteTodo = useCallback(
-    (id) => {
-      const newTodos = todos.map((todo) => {
+  const handleCompleteTodo: handleCompleteTodo = useCallback(
+    (id: string) => {
+      const newTodos: Todo[] = todos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, isCompleted: true };
         } else {
@@ -22,8 +30,8 @@ const useHandleTodos = () => {
     [todos]
   );
 
-  const handleDeleteTodo = useCallback(
-    (id) => {
+  const handleDeleteTodo: handleDeleteTodo = useCallback(
+    (id: string): void => {
       const newTodos = todos.filter((todo) => todo.id !== id);
       setTodos(newTodos);
       localStorage.setItem("todos", JSON.stringify(newTodos));
@@ -31,21 +39,18 @@ const useHandleTodos = () => {
     [todos]
   );
 
-  const handleAddTodo = useCallback(
-    (id, title, description) => {
-      console.log("handle add todo called");
+  const handleAddTodo: handleAddTodo = useCallback(
+    (id: string, title: string, description: string): void => {
       if (!id || !title || !description) {
         return;
       }
-      const newTodos = [
-        ...todos,
-        {
-          id: id,
-          title: title,
-          description: description,
-          isCompleted: false,
-        },
-      ];
+      const newTodo: Todo = {
+        id,
+        title,
+        description,
+        isCompleted: false,
+      };
+      const newTodos: Todo[] = [...todos, newTodo];
       setTodos(newTodos);
       localStorage.setItem("todos", JSON.stringify(newTodos));
     },
@@ -60,4 +65,4 @@ const useHandleTodos = () => {
   };
 };
 
-export default useHandleTodos;
+export default useTodos;

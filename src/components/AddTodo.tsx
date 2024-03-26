@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "../baseComponents/Button";
 import { v4 as uuidv4 } from "uuid";
 import { useThemeProvider } from "../hooks/useThemeProvider";
-import { THEME_MODES } from "../utils/constants";
 
 const AddTodo = ({ handleAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -11,8 +10,8 @@ const AddTodo = ({ handleAddTodo }) => {
   const { theme } = useThemeProvider();
 
   const style = {
-    backgroundColor: `${theme === THEME_MODES.LIGHT ? "#F5F5DC" : "#262523"}`,
-    color: `${theme === THEME_MODES.LIGHT ? "#262523" : "#F5F5DC"}`,
+    backgroundColor: `${theme === 'light' ? "#F5F5DC" : "#262523"}`,
+    color: `${theme === 'light' ? "#262523" : "#F5F5DC"}`,
   };
 
   const handleSubmit = () => {

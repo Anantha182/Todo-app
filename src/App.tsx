@@ -1,3 +1,4 @@
+import React from "react";
 import Main from "./modules/Main";
 import Navbar from "./modules/Navbar";
 import { ThemeProvider } from "./contexts/themeContext";

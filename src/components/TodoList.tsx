@@ -1,7 +1,19 @@
+import React from "react";
 import TodoItem from "./TodoItem";
+import { Todo } from "../types/types";
+import { handleDeleteTodo, handleCompleteTodo } from "../types/types";
 
-const TodoList = ({ todos, handleCompleteTodo, handleDeleteTodo }) => {
- 
+type TodoListProps = {
+  todos: Todo[];
+  handleCompleteTodo: handleCompleteTodo;
+  handleDeleteTodo: handleDeleteTodo;
+};
+
+const TodoList: React.FC<TodoListProps> = ({
+  todos,
+  handleCompleteTodo,
+  handleDeleteTodo,
+}) => {
   return (
     <div className="m-2">
       {todos &&
